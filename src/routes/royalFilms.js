@@ -5,14 +5,10 @@ async function get(req, res) {
         const pageTitle = await scraper.getPageTitle('https://royal-films.com/cartelera/barranquilla');
         const pageData = await scraper.getData('https://royal-films.com/cartelera/barranquilla');
 
-        const datas=[]
+       
         
-        for (i of pageData) {
-            x= scraper.data(i)
-            datas.push(x) 
-            
-          }
-          let values = await Promise.all(datas);
+       
+          let values = await Promise.all(pageData);
         const dataJson = {
             pageTitle: pageTitle,
             allMoviesDetails:values
